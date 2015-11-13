@@ -1,0 +1,20 @@
+﻿<p><a href="/">首页</a></p>
+<style type="text/css">
+body {background-color:SkyBlue;}
+</style>
+<body>
+<table width=100% height=100%><tr><td><center>
+<p>您要查找的作者是: <strong>{{ q }}</strong></p>
+{% if books %}
+<p>找到 {{ books|length }} 本书</p>
+<table border=1 align="center">
+<tr><th>书名</th>><th>操作</th></tr>
+{% for book in books %}
+<tr><td><a href="/detail/?ISBN={{ book.ISBN }}">{{ book.Title }}</a></td><td><a href="/delete/?ISBN={{ book.ISBN }}">删除</a></td></tr>
+{% endfor %}
+{% else %}
+<h1><p style="color: red;">抱歉，没有该作者的书</p></h1>
+{% endif %}
+</table>
+</center></td></tr></table>
+</body>

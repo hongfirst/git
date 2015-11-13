@@ -1,0 +1,23 @@
+﻿<html> <head> <title>更新图书</title> </head>
+<p><a href="/">首页</a></p>
+<style type="text/css">
+body {background-color:SkyBlue;}
+</style>
+<body>
+<table width=100% height=100%><tr><td><center>
+更新
+<form action="/update/?ISBN={{ book.ISBN }}" method="post">
+{% csrf_token %}
+<table border=1 align="center">
+<tr><th>ISBN</th><td>{{ book.ISBN }}</td></tr>
+<tr><th>Author</th><td><input name="Author" value="{{ book.AuthorID.Name }}" type="text"></td></tr>
+<tr><th>书名</th><td><input name="Title" value="{{ book.Title }}" type="text"></td></tr>
+<tr><th>出版商</th><td><input name="Publisher" value="{{ book.Publisher}}" type="text"></td></tr>
+<tr><th>出版日期</th><td><input name="PublishDate" value="{{ book.PublishDate }}" type="date"></td></tr>
+<tr><th>价格</th><td><input name="Price" value="{{ book.Price }}" type="text"></td></tr>
+<tr><td><input type="submit" value="保存"><input type="reset" value="重填"></td></tr>
+</table>
+</form>
+</center></td></tr></table>
+</body>
+</html>
